@@ -10,7 +10,7 @@ import UIKit
 
 class BeaconTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var iconImageView: UIImageView!
+    //@IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var uuidLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -24,7 +24,7 @@ class BeaconTableViewCell: UITableViewCell {
                 locationLabel.text = beacon.locationString()
                 
             } else {
-                iconImageView.image = nil
+                //iconImageView.image = nil
                 nameLabel.text = ""
                 uuidLabel.text = ""
                 locationLabel.text = ""

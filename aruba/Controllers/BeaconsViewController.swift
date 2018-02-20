@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddBeaconControllerDelegate {
+class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddBeaconControllerDelegate, CLLocationManagerDelegate {
     
     var beacons:[Beacon] = []
     var beacon: CLBeacon?
@@ -20,6 +20,8 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.delegate = self
         self.initView()
     }
     
@@ -32,6 +34,10 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 84
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.beacons.count
@@ -51,10 +57,47 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if editingStyle == .delete {
             let beacon = self.beacons[indexPath.row]
             self.stopMonitoringItem(beacon)
-            BeaconManager.shareInstance.deleteBeacon(beacon: beacon)
+            BeaconManager.shareInstance.deleteBeacon(index: indexPath.row)
         }
         self.getBeacons()
     }
+    
+    
+    // MARK: - CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print("Failed monitoring region: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location manager failed: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        
+        // Find the same beacons in the table.
+        var indexPaths = [IndexPath]()
+        
+        for beacon in beacons {
+            for row in 0..<self.beacons.count {
+                //if self.beacons[row] == beacon {
+                if self.compare(self.beacons[row], beacon){
+                    self.beacons[row].beacon = beacon
+                    indexPaths += [IndexPath(row: row, section: 0)]
+                }
+            }
+        }
+        
+        // Update beacon locations of visible rows.
+        if let visibleRows = tableView.indexPathsForVisibleRows {
+            let rowsToUpdate = visibleRows.filter { indexPaths.contains($0) }
+            for row in rowsToUpdate {
+                let cell = tableView.cellForRow(at: row) as! BeaconTableViewCell
+                cell.refreshLocation()
+            }
+        }
+    }
+    
     
     // MARK: - AddBeaconControllerDelegate
     
@@ -74,15 +117,21 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     // MARK: - Own Methods
+
+    func initView(){
+        BeaconManager.shareInstance.addBeacon(name: "amp", uuid: UUID(uuidString: "A596EBF0-163B-4F0C-B55F-B9DEDFB7CF78")!, major: 1000, minor: 1007)
+        BeaconManager.shareInstance.addBeacon(name: "dark", uuid: UUID(uuidString: "A596EBF0-163B-4F0C-B55F-B9DEDFB7CF78")!, major: 1000, minor: 1009)
+        self.getBeacons()
+    }
     
     func getBeacons(){
         self.beacons = BeaconManager.shareInstance.getBeacons()
+        
+        for beacon in beacons{
+            self.startMonitoringItem(beacon)
+        }
+        
         self.tableView.reloadData()
-    }
-    
-    func initView(){
-        locationManager.requestAlwaysAuthorization()
-        locationManager.delegate = self
     }
     
     func startMonitoringItem(_ beacon: Beacon) {
@@ -99,48 +148,12 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func compare(_ item: Beacon, _ beacon: CLBeacon) -> Bool {
         return ((beacon.proximityUUID.uuidString == item.uuid?.uuidString)
-            && (Int16(beacon.major) == item.major)
-            && (Int16(beacon.minor) == item.minor))
+            && (Int(truncating: beacon.major) == item.major)
+            && (Int(truncating: beacon.minor) == item.minor))
     }
 
 }
 
 
 
-// MARK: - CLLocationManagerDelegate
 
-extension  BeaconsViewController : CLLocationManagerDelegate  {
-    
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        print("Failed monitoring region: \(error.localizedDescription)")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location manager failed: \(error.localizedDescription)")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        
-        // Find the same beacons in the table.
-        var indexPaths = [IndexPath]()
-        
-        for beacon in beacons {
-            for row in 0..<self.beacons.count {
-                if self.beacons[row] == beacon {
-                    self.beacons[row].beacon = beacon
-                    indexPaths += [IndexPath(row: row, section: 0)]
-                }
-            }
-        }
-        
-        // Update beacon locations of visible rows.
-        if let visibleRows = tableView.indexPathsForVisibleRows {
-            let rowsToUpdate = visibleRows.filter { indexPaths.contains($0) }
-            for row in rowsToUpdate {
-                let cell = tableView.cellForRow(at: row) as! BeaconTableViewCell
-                cell.refreshLocation()
-            }
-        }
-    }
-    
-}

@@ -16,6 +16,7 @@
 		50F1FF66203C6A690034FE0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF64203C6A690034FE0C /* LaunchScreen.storyboard */; };
 		50F1FF71203C725A0034FE0C /* BeaconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1FF70203C725A0034FE0C /* BeaconsViewController.swift */; };
 		50F1FF73203C72670034FE0C /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1FF72203C72670034FE0C /* AddBeaconViewController.swift */; };
+		50F41C48203CCF5000E48C23 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F41C47203CCF5000E48C23 /* Beacon.swift */; };
 		F4FCAB69F16A50EB1F7D97C4 /* Pods_aruba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB96633BB72D433705FDAF1 /* Pods_aruba.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		50F1FF67203C6A690034FE0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F1FF70203C725A0034FE0C /* BeaconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconsViewController.swift; sourceTree = "<group>"; };
 		50F1FF72203C72670034FE0C /* AddBeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
+		50F41C47203CCF5000E48C23 /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		5DAFAF26671C9BA88906C403 /* Pods-aruba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aruba.release.xcconfig"; path = "Pods/Target Support Files/Pods-aruba/Pods-aruba.release.xcconfig"; sourceTree = "<group>"; };
 		9DB96633BB72D433705FDAF1 /* Pods_aruba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aruba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 		50F1FF6D203C72280034FE0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				50F41C47203CCF5000E48C23 /* Beacon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				50E0F10D203C936F0014C898 /* BeaconTableViewCell.swift in Sources */,
 				50F1FF59203C6A690034FE0C /* AppDelegate.swift in Sources */,
 				50F1FF61203C6A690034FE0C /* aruba.xcdatamodeld in Sources */,
+				50F41C48203CCF5000E48C23 /* Beacon.swift in Sources */,
 				50E0F10B203C7D280014C898 /* BeaconManager.swift in Sources */,
 				50F1FF71203C725A0034FE0C /* BeaconsViewController.swift in Sources */,
 			);
@@ -411,7 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8G3U5J6J6N;
+				DEVELOPMENT_TEAM = 778N4TU227;
 				INFOPLIST_FILE = aruba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.everis.aruba;
@@ -427,7 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8G3U5J6J6N;
+				DEVELOPMENT_TEAM = 778N4TU227;
 				INFOPLIST_FILE = aruba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.everis.aruba;

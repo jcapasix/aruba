@@ -46,8 +46,7 @@ class AddBeaconViewController: UIViewController {
         let name = nameBeaconTextField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         
         
-        let newBeacon = BeaconManager.shareInstance.addBeacon(name: name, uuid: uuid, major: UInt16(major), minor: UInt16(minor))
-        
+        let newBeacon = BeaconManager.shareInstance.addBeacon(name: name, uuid: uuid, major: major, minor: minor)
         delegate?.addBeacon(beacon: newBeacon)
         
         self.navigationController?.popToRootViewController(animated: true)
