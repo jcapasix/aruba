@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50E0F10B203C7D280014C898 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0F10A203C7D280014C898 /* BeaconManager.swift */; };
+		50E0F10D203C936F0014C898 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0F10C203C936F0014C898 /* BeaconTableViewCell.swift */; };
 		50F1FF59203C6A690034FE0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1FF58203C6A690034FE0C /* AppDelegate.swift */; };
-		50F1FF5B203C6A690034FE0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1FF5A203C6A690034FE0C /* ViewController.swift */; };
 		50F1FF5E203C6A690034FE0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF5C203C6A690034FE0C /* Main.storyboard */; };
 		50F1FF61203C6A690034FE0C /* aruba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50F1FF5F203C6A690034FE0C /* aruba.xcdatamodeld */; };
 		50F1FF63203C6A690034FE0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF62203C6A690034FE0C /* Assets.xcassets */; };
 		50F1FF66203C6A690034FE0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF64203C6A690034FE0C /* LaunchScreen.storyboard */; };
+		50F1FF71203C725A0034FE0C /* BeaconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1FF70203C725A0034FE0C /* BeaconsViewController.swift */; };
+		50F1FF73203C72670034FE0C /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1FF72203C72670034FE0C /* AddBeaconViewController.swift */; };
+		F4FCAB69F16A50EB1F7D97C4 /* Pods_aruba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB96633BB72D433705FDAF1 /* Pods_aruba.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02FB1993CC1696C888E79612 /* Pods-aruba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aruba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-aruba/Pods-aruba.debug.xcconfig"; sourceTree = "<group>"; };
+		50E0F10A203C7D280014C898 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		50E0F10C203C936F0014C898 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 		50F1FF55203C6A690034FE0C /* aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F1FF58203C6A690034FE0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		50F1FF5A203C6A690034FE0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50F1FF5D203C6A690034FE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50F1FF60203C6A690034FE0C /* aruba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = aruba.xcdatamodel; sourceTree = "<group>"; };
 		50F1FF62203C6A690034FE0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50F1FF65203C6A690034FE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50F1FF67203C6A690034FE0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50F1FF70203C725A0034FE0C /* BeaconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconsViewController.swift; sourceTree = "<group>"; };
+		50F1FF72203C72670034FE0C /* AddBeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
+		5DAFAF26671C9BA88906C403 /* Pods-aruba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aruba.release.xcconfig"; path = "Pods/Target Support Files/Pods-aruba/Pods-aruba.release.xcconfig"; sourceTree = "<group>"; };
+		9DB96633BB72D433705FDAF1 /* Pods_aruba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aruba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4FCAB69F16A50EB1F7D97C4 /* Pods_aruba.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50E0F109203C7D100014C898 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				50E0F10A203C7D280014C898 /* BeaconManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		50F1FF4C203C6A690034FE0C = {
 			isa = PBXGroup;
 			children = (
 				50F1FF57203C6A690034FE0C /* aruba */,
 				50F1FF56203C6A690034FE0C /* Products */,
+				C4A5E95DABD711DE0760C313 /* Pods */,
+				B4FC74BBF26A295F341D21AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +77,59 @@
 		50F1FF57203C6A690034FE0C /* aruba */ = {
 			isa = PBXGroup;
 			children = (
-				50F1FF58203C6A690034FE0C /* AppDelegate.swift */,
-				50F1FF5A203C6A690034FE0C /* ViewController.swift */,
-				50F1FF5C203C6A690034FE0C /* Main.storyboard */,
-				50F1FF62203C6A690034FE0C /* Assets.xcassets */,
-				50F1FF64203C6A690034FE0C /* LaunchScreen.storyboard */,
+				50E0F109203C7D100014C898 /* Helpers */,
 				50F1FF67203C6A690034FE0C /* Info.plist */,
+				50F1FF58203C6A690034FE0C /* AppDelegate.swift */,
+				50F1FF62203C6A690034FE0C /* Assets.xcassets */,
 				50F1FF5F203C6A690034FE0C /* aruba.xcdatamodeld */,
+				50F1FF6D203C72280034FE0C /* Models */,
+				50F1FF6E203C72340034FE0C /* Views */,
+				50F1FF6F203C723B0034FE0C /* Controllers */,
 			);
 			path = aruba;
+			sourceTree = "<group>";
+		};
+		50F1FF6D203C72280034FE0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		50F1FF6E203C72340034FE0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50F1FF64203C6A690034FE0C /* LaunchScreen.storyboard */,
+				50F1FF5C203C6A690034FE0C /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		50F1FF6F203C723B0034FE0C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				50F1FF70203C725A0034FE0C /* BeaconsViewController.swift */,
+				50F1FF72203C72670034FE0C /* AddBeaconViewController.swift */,
+				50E0F10C203C936F0014C898 /* BeaconTableViewCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B4FC74BBF26A295F341D21AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DB96633BB72D433705FDAF1 /* Pods_aruba.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4A5E95DABD711DE0760C313 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02FB1993CC1696C888E79612 /* Pods-aruba.debug.xcconfig */,
+				5DAFAF26671C9BA88906C403 /* Pods-aruba.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +139,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50F1FF6A203C6A690034FE0C /* Build configuration list for PBXNativeTarget "aruba" */;
 			buildPhases = (
+				E0B123650C5C3BC22856D19B /* [CP] Check Pods Manifest.lock */,
 				50F1FF51203C6A690034FE0C /* Sources */,
 				50F1FF52203C6A690034FE0C /* Frameworks */,
 				50F1FF53203C6A690034FE0C /* Resources */,
+				78A6B9A8F2E33885BCF93420 /* [CP] Embed Pods Frameworks */,
+				FE5E8DF2F3B75858CC5E86E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,14 +202,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		78A6B9A8F2E33885BCF93420 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-aruba/Pods-aruba-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-aruba/Pods-aruba-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0B123650C5C3BC22856D19B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-aruba-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE5E8DF2F3B75858CC5E86E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-aruba/Pods-aruba-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50F1FF51203C6A690034FE0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50F1FF5B203C6A690034FE0C /* ViewController.swift in Sources */,
+				50F1FF73203C72670034FE0C /* AddBeaconViewController.swift in Sources */,
+				50E0F10D203C936F0014C898 /* BeaconTableViewCell.swift in Sources */,
 				50F1FF59203C6A690034FE0C /* AppDelegate.swift in Sources */,
 				50F1FF61203C6A690034FE0C /* aruba.xcdatamodeld in Sources */,
+				50E0F10B203C7D280014C898 /* BeaconManager.swift in Sources */,
+				50F1FF71203C725A0034FE0C /* BeaconsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +407,7 @@
 		};
 		50F1FF6B203C6A690034FE0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02FB1993CC1696C888E79612 /* Pods-aruba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +423,7 @@
 		};
 		50F1FF6C203C6A690034FE0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DAFAF26671C9BA88906C403 /* Pods-aruba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -8,7 +8,19 @@
 
 import UIKit
 
+protocol AddBeaconControllerDelegate {
+    func addBeacon(beacon: Beacon)
+}
+
+
 class AddBeaconViewController: UIViewController {
+    
+    @IBOutlet weak var nameBeaconTextField: UITextField!
+    @IBOutlet weak var uuidBeaconTextField: UITextField!
+    @IBOutlet weak var majorBeaconTextField: UITextField!
+    @IBOutlet weak var minorBeaconTextField: UITextField!
+    
+    var delegate:AddBeaconControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +31,28 @@ class AddBeaconViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func addBeaconButtonPressed(_ sender: Any) {
+        
+        
+        
+        // Create new beacon item
+        let uuidString = uuidBeaconTextField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        guard let uuid = UUID(uuidString: uuidString) else { return }
+        let major = Int(majorBeaconTextField.text!) ?? 0
+        let minor = Int(minorBeaconTextField.text!) ?? 0
+        let name = nameBeaconTextField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        
+        let newBeacon = BeaconManager.shareInstance.addBeacon(name: name, uuid: uuid, major: UInt16(major), minor: UInt16(minor))
+        
+        delegate?.addBeacon(beacon: newBeacon)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+        
+    
     }
     
 
