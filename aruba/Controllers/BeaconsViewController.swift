@@ -101,7 +101,6 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     if self.compare(self.beacons[row], beacon) && self.max != nil{
                         self.currentBeacon = self.beacons[row]
                         print("currentBeacon \(self.currentBeacon?.name)")
-                        
                     }
                 }
             }
@@ -130,10 +129,27 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let addBeaconView = segue.destination as! AddBeaconViewController
-        addBeaconView.delegate = self
+        
+        if segue.identifier == "addBeaconSegue"{
+            let addBeaconView = segue.destination as! AddBeaconViewController
+            addBeaconView.delegate = self
+        }
+        else{
+            
+            let navigation = segue.destination as! UINavigationController
+            
+            let detailBeaconView = navigation.topViewController as! DetailBeaconViewController
+            detailBeaconView.beacon = self.currentBeacon
+        }
+        
     }
     
+    
+    // MARK: - Actions
+    
+    @IBAction func currentBeaconButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "detailBeaconSegue", sender: nil)
+    }
     
     // MARK: - Own Methods
 

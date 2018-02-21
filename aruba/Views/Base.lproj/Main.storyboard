@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pVD-5Z-14g">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" rowHeight="84" id="PzW-lk-NPl" customClass="BeaconTableViewCell" customModule="aruba" customModuleProvider="target">
@@ -63,12 +63,22 @@
                                     <outlet property="delegate" destination="dbz-lH-1hq" id="EdS-hV-48A"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vh-et-yjQ">
+                                <rect key="frame" x="129" y="620" width="117" height="30"/>
+                                <state key="normal" title="Current Beacon"/>
+                                <connections>
+                                    <action selector="currentBeaconButton:" destination="dbz-lH-1hq" eventType="touchUpInside" id="SaW-fO-yhg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pVD-5Z-14g" firstAttribute="bottom" secondItem="c0u-CB-qa2" secondAttribute="bottom" id="AfA-LU-OAc"/>
                             <constraint firstItem="pVD-5Z-14g" firstAttribute="trailing" secondItem="c0u-CB-qa2" secondAttribute="trailing" id="Efu-3f-v0U"/>
+                            <constraint firstItem="2Vh-et-yjQ" firstAttribute="top" secondItem="pVD-5Z-14g" secondAttribute="bottom" constant="17" id="Kq6-LL-H7E"/>
                             <constraint firstItem="pVD-5Z-14g" firstAttribute="top" secondItem="c0u-CB-qa2" secondAttribute="top" id="aqD-ho-iT2"/>
+                            <constraint firstItem="c0u-CB-qa2" firstAttribute="trailing" secondItem="2Vh-et-yjQ" secondAttribute="trailing" constant="129" id="gT9-86-gxl"/>
+                            <constraint firstItem="c0u-CB-qa2" firstAttribute="bottom" secondItem="2Vh-et-yjQ" secondAttribute="bottom" constant="17" id="i3R-rl-nFe"/>
+                            <constraint firstItem="2Vh-et-yjQ" firstAttribute="leading" secondItem="c0u-CB-qa2" secondAttribute="leading" constant="129" id="kh9-vq-SJi"/>
                             <constraint firstItem="pVD-5Z-14g" firstAttribute="leading" secondItem="c0u-CB-qa2" secondAttribute="leading" id="pda-gU-Btd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c0u-CB-qa2"/>
@@ -82,39 +92,54 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="pVD-5Z-14g" id="IBS-dr-XAK"/>
-                        <segue destination="wEj-G9-KbI" kind="presentation" identifier="detailBeaconSegue" id="cDJ-5O-2ef"/>
+                        <segue destination="VxL-7Y-8vf" kind="presentation" identifier="detailBeaconSegue" id="cDJ-5O-2ef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j79-bt-ueT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552.79999999999995" y="282.90854572713647"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Beacon Detail-->
         <scene sceneID="wqZ-Sd-skt">
             <objects>
-                <viewController id="wEj-G9-KbI" customClass="DetailViewController" customModule="aruba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wEj-G9-KbI" customClass="DetailBeaconViewController" customModule="aruba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mPq-IU-l3q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hS-FX-7Ty">
-                                <rect key="frame" x="80" y="267" width="214" height="133"/>
+                                <rect key="frame" x="79" y="263" width="214" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40K-kp-kU9">
+                                <rect key="frame" x="16" y="335" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PqR-G6-x4W"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Beacon Detail" id="k7N-OT-f5g">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dd8-VZ-TFX">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="wEj-G9-KbI" id="sne-al-lTV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="nameBeaconLabel" destination="0hS-FX-7Ty" id="n4v-qZ-bI1"/>
+                        <outlet property="beaconNameLabel" destination="0hS-FX-7Ty" id="iqu-Gz-MEQ"/>
+                        <outlet property="beaconUUIDLabel" destination="40K-kp-kU9" id="3gD-c5-3Dv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AOT-Jf-MKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552.79999999999995" y="1033.1334332833585"/>
+            <point key="canvasLocation" x="1376.8" y="1030.4347826086957"/>
         </scene>
         <!--Add Beacon-->
         <scene sceneID="AcW-Fi-9pO">
@@ -192,6 +217,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGH-LT-2qE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-289" y="283"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pum-cB-y6h">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VxL-7Y-8vf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oe4-hu-0iQ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wEj-G9-KbI" kind="relationship" relationship="rootViewController" id="XpU-5Z-Jk2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDI-jX-yMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="1032.6836581709147"/>
         </scene>
     </scenes>
 </document>

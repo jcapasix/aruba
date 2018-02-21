@@ -1,27 +1,37 @@
 //
-//  DetailViewController.swift
+//  DetailBeaconViewController.swift
 //  aruba
 //
-//  Created by Jordan Capa on 20/02/18.
+//  Created by Jordan Capa on 21/02/18.
 //  Copyright © 2018 everis. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailBeaconViewController: UIViewController {
 
+    var beacon:Beacon?
     
-    @IBOutlet weak var nameBeaconLabel: UILabel!
-    
+    @IBOutlet weak var beaconNameLabel: UILabel!
+    @IBOutlet weak var beaconUUIDLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.beaconNameLabel.text = beacon?.name
+        self.beaconUUIDLabel.text = "\(String(describing: beacon?.uuid?.uuidString ?? ""))"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 
     /*
