@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MBProgressHUD
 
 class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddBeaconControllerDelegate, CLLocationManagerDelegate {
     
@@ -148,7 +149,11 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Actions
     
     @IBAction func currentBeaconButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "detailBeaconSegue", sender: nil)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            MBProgressHUD.hide(for: self.view, animated: true)
+            self.performSegue(withIdentifier: "detailBeaconSegue", sender: nil)
+        }
     }
     
     // MARK: - Own Methods

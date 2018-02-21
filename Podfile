@@ -8,5 +8,6 @@ target 'aruba' do
   # Pods for aruba
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'IQKeyboardManager'
+  pod 'MBProgressHUD', '~> 1.1.0'
 
 end
