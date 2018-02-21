@@ -12,7 +12,10 @@ import CoreLocation
 class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddBeaconControllerDelegate, CLLocationManagerDelegate {
     
     var beacons:[Beacon] = []
+    var currentBeacon:Beacon?
     var beacon: CLBeacon?
+    
+    var max:Double = 999.0
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -79,11 +82,27 @@ class BeaconsViewController: UIViewController, UITableViewDelegate, UITableViewD
         var indexPaths = [IndexPath]()
         
         for beacon in beacons {
+            
             for row in 0..<self.beacons.count {
                 //if self.beacons[row] == beacon {
                 if self.compare(self.beacons[row], beacon){
                     self.beacons[row].beacon = beacon
                     indexPaths += [IndexPath(row: row, section: 0)]
+                }
+            }
+        }
+        
+        self.max = 999.0
+        
+        for beacon in beacons{
+            if beacon.accuracy <= self.max{
+                self.max = beacon.accuracy
+                for row in 0..<self.beacons.count {
+                    if self.compare(self.beacons[row], beacon) && self.max != nil{
+                        self.currentBeacon = self.beacons[row]
+                        print("currentBeacon \(self.currentBeacon?.name)")
+                        
+                    }
                 }
             }
         }
